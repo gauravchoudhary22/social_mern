@@ -6,7 +6,7 @@ const mongoose = require("mongoose")
 app.use(express.json())
 
 
-mongoose.connect("mongodb+srv://username:123@cluster0.1s811.mongodb.net/socialDB", {
+mongoose.connect("mongodb link", {
     useNewUrlParser: true, useUnifiedTopology: true
 }).then(() => {
     console.log("Successfully connected to the database");    
