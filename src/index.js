@@ -2,11 +2,29 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Create from './components/create'
+import Login from './components/login'
+import Register from './components/register'
+import Dashboard from './components/dashboard'
+
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+  <BrowserRouter>
+  <Routes>
+  <Route  path="/" element={<App />} />
+     <Route path='create' element={<Create/>} />
+      <Route path='dashboard' element={<Dashboard/>} />
+      <Route path='login' element={<Login/>} />
+      <Route path='register' element={<Register/>} />
+</Routes>
+  </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
