@@ -25,7 +25,7 @@ router.post("/login",(req,res)=>{
         if(err){
             console.log(err);
         }
-        else{
+        else if(data !=null){
             res.send({user:data.email});
         }
     })

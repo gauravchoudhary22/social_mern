@@ -6,6 +6,7 @@ import Create from './components/create'
 import Login from './components/login'
 import Register from './components/register'
 import Dashboard from './components/dashboard'
+import Update from './components/update';
 
 import {
   BrowserRouter,
@@ -21,6 +22,7 @@ ReactDOM.render(
   <Route  path="/" element={<App />} />
      <Route path='create' element={<Create/>} />
       <Route path='dashboard' element={<Dashboard/>} />
+      <Route path='update/:id' element={<Update/>} />
       <Route path='login' element={<Login/>} />
       <Route path='register' element={<Register/>} />
 </Routes>

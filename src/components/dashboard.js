@@ -19,6 +19,24 @@ export default function Dashboard() {
         navigate('/')
     }
 
+    const handleDelete= (id)=>{
+        console.log("del")
+     axios.delete(`/post/${id}`)
+    .then((response) => {
+        // console.log(id)
+        let data2 = data.filter(d=>d._id!=id)
+        setData(data2)
+    })
+    .catch((error)=>{
+        console.log(error)
+    }) 
+    }
+
+    // const handleUpdate = (id)=>{
+    //     navigate(`/update/${id}`)
+    // }
+
+
    const fetchData = async()=>{
     await axios.get(`/post`)
     .then((response) => {
@@ -29,6 +47,7 @@ export default function Dashboard() {
         console.log(error)
     })
    }
+
 if(user){
     return (
     
@@ -41,6 +60,20 @@ if(user){
                                 <h3>{d.title}</h3>
                                 <p>{d.body}</p>
                                 <p>-{d.user}</p>
+                                {user==d.user &&
+                                    <p>
+                                    <Link to={`/update/${d._id}`}> Edit </Link> <br/>
+                                    <button onClick={()=>handleDelete(d._id)}>Delete</button>
+                                    </p>
+                                }
+
+                                <p>
+                                   
+                                
+                                        
+                                    
+                                   
+                                </p>
                             </div>
                         )
                     })}
